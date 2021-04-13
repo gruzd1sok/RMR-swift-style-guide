@@ -275,7 +275,7 @@ Aspirational methods not directly associated with the tutorial whose implementat
 **Preferred:**
 ```swift
 override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-  return Database.contacts.count
+  Database.contacts.count
 }
 ```
 
@@ -379,7 +379,7 @@ class Circle: Shape {
   var radius: Double
   var diameter: Double {
     get {
-      return radius * 2
+      radius * 2
     }
     set {
       radius = newValue / 2
@@ -397,16 +397,16 @@ class Circle: Shape {
   }
 
   override func area() -> Double {
-    return Double.pi * radius * radius
+    Double.pi * radius * radius
   }
 }
 
 extension Circle: CustomStringConvertible {
   var description: String {
-    return "center = \(centerString) area = \(area())"
+    "center = \(centerString) area = \(area())"
   }
   private var centerString: String {
-    return "(\(x),\(y))"
+    "(\(x),\(y))"
   }
 }
 ```
@@ -445,7 +445,7 @@ For conciseness, if a computed property is read-only, omit the get clause. The g
 **Preferred:**
 ```swift
 var diameter: Double {
-  return radius * 2
+  radius * 2
 }
 ```
 
@@ -453,7 +453,7 @@ var diameter: Double {
 ```swift
 var diameter: Double {
   get {
-    return radius * 2
+    radius * 2
   }
 }
 ```
@@ -511,7 +511,8 @@ func reticulateSplines(
     spline: [Double], 
     adjustmentFactor: Double,
     translateConstant: Int, 
-    comment: String) -> Bool {
+    comment: String
+) -> Bool {
   // reticulate code goes here
 }
 ```
@@ -835,8 +836,8 @@ Extend object lifetime using the `[weak self]` and ```guard let self = self else
 ```swift
 resource.request().onComplete { [weak self] response in
     guard let self = self else { return }
-    let model = strongSelf.updateModel(response)
-    strongSelf.updateUI(model)
+    let model = self.updateModel(response)
+    self.updateUI(model)
 }
 ```
 
@@ -970,8 +971,8 @@ When multiple conditionals are inside the operator, add line breaks before a new
 
 ```swift
 if isTrue(),
-    isFalse(),
-    tax > MinTax {
+   isFalse(),
+   tax > MinTax {
     // ...
 }
 ```
